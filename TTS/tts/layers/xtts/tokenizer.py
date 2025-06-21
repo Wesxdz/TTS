@@ -611,6 +611,7 @@ class VoiceBpeTokenizer:
             "ja": 71,
             "hu": 224,
             "ko": 95,
+            "mg": 250,
         }
 
     @cached_property
@@ -636,7 +637,7 @@ class VoiceBpeTokenizer:
                 txt = korean_transliterate(txt)
         elif lang == "ja":
             txt = japanese_cleaners(txt, self.katsu)
-        elif lang == "hi":
+        elif lang in {"hi", "mg"}:
             # @manmay will implement this
             txt = basic_cleaners(txt)
         else:
